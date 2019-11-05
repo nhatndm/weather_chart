@@ -8,7 +8,8 @@ import { CallApiWith } from "../../Helpers";
 import { HttpMethod } from "../../Constant";
 
 /**
- * @desc Call api to fetch citis
+ * @desc Call api to fetch weathers
+ * @param citiId
  * @return function - call API with these informations, then dispatch scuccessful action or failed action
  */
 

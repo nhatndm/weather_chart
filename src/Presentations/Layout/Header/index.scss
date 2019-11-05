@@ -1,0 +1,51 @@
+.app-header {
+  padding-bottom: 10px;
+  box-shadow: 0 10px 10px rgba(151, 164, 175, 0.1);
+
+  .header-wrapper {
+    > .select-language-wrapper {
+      padding-top: 10px;
+      padding-bottom: 5px;
+
+      > .col-12 {
+        display: flex;
+        align-items: center;
+
+        > .select-language {
+          margin: 0;
+          margin-left: 0.5rem;
+          font-weight: 300;
+          display: inline;
+          letter-spacing: 2px;
+
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    > .brand-wrapper {
+      > .header-icon-wrapper {
+        display: flex;
+        align-items: center;
+
+        @media only screen and (max-width: 800px) {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .web-title {
+          margin: 0;
+          display: inline;
+          font-size: 2.25rem;
+          font-weight: 500;
+          margin-left: 0.5rem;
+          letter-spacing: 2px;
+          color: var(--app-light-blue);
+        }
+      }
+    }
+  }
+}

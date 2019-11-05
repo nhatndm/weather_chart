@@ -8,7 +8,11 @@ export default class App extends Component {
       <Fragment>
         <HeaderContainer />
 
-        <div className="container">This is app content</div>
+        <div className="app-content">
+          <div className="container app-content-wrapper">
+            This is app content
+          </div>
+        </div>
 
         <FooterContainer />
       </Fragment>

@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import { ReactComponent as SelectLanguageIcon } from "../../Assets/planet-earth.svg";
-import { ReactComponent as USIcon } from "../../Assets/united-states-of-america.svg";
-import { ReactComponent as FRicon } from "../../Assets/france.svg";
-import { ReactComponent as VnIcon } from "../../Assets/vietnam.svg";
-import { ReactComponent as CloseIcon } from "../../Assets/cross.svg";
+import { ReactComponent as SelectLanguageIcon } from "../../../Assets/planet-earth.svg";
+import { ReactComponent as USIcon } from "../../../Assets/united-states-of-america.svg";
+import { ReactComponent as FRicon } from "../../../Assets/france.svg";
+import { ReactComponent as VnIcon } from "../../../Assets/vietnam.svg";
+import { ReactComponent as CloseIcon } from "../../../Assets/cross.svg";
 
 import "./index.scss";
 
@@ -50,6 +50,8 @@ export default class SelectLanguage extends Component {
   };
 
   handleChangeLanguage = id => e => {
+    const { setLanguage } = this.props;
+
     this.setState(state => {
       const langugages = state.languages.map(v => {
         if (v.id === id) {
@@ -60,6 +62,8 @@ export default class SelectLanguage extends Component {
 
         return v;
       });
+
+      setLanguage(id);
 
       return {
         languages: langugages

@@ -5,7 +5,9 @@ import {
 } from "./type";
 
 const initState = {
-  weathers: [],
+  times: [],
+  temps: [],
+  pressures: [],
   error: "",
   loading: false
 };
@@ -15,7 +17,13 @@ export default (state = initState, action) => {
     case FETCH_WEATHERS:
       return { ...state, loading: true };
     case FETCH_WEATHERS_SUCCESS:
-      return { ...state, loading: false, weathers: action.weathers };
+      return {
+        ...state,
+        loading: false,
+        times: action.times,
+        temps: action.temps,
+        pressures: action.pressures
+      };
     case FETCH_WEATHERS_FAILURE:
       return { ...state, loading: false, error: action.error };
     default:

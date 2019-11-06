@@ -6,6 +6,7 @@ import {
 } from "./action-creator";
 import { CallApiWith } from "../../Helpers";
 import { HttpMethod } from "../../Constant";
+import { map } from "lodash";
 
 /**
  * @desc Call api to fetch weathers
@@ -23,9 +24,15 @@ export function asyncFetchWeathers(citiId) {
         appid: "0e65d269385c3e189ab0ef90c3ba6f47"
       });
 
-      const weathers = response.data;
+      const weathers = response.data.list;
 
-      dispatch(fetchWeathersSuccess(weathers));
+      const times = map(weathers, v => v.dt_txt);
+
+      const temps = map(weathers, v => v.main.temp);
+
+      const pressures = map(weathers, v => v.main.pressure);
+
+      dispatch(fetchWeathersSuccess(times, temps, pressures));
     } catch (error) {
       dispatch(fetchWeathersFailure(error.response.data));
     }

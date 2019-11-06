@@ -6,10 +6,12 @@ import {
 
 export const fetchWeathers = () => ({ type: FETCH_WEATHERS });
 
-export const fetchWeathersSuccess = weathers => {
+export const fetchWeathersSuccess = (times, temps, pressures) => {
   return {
     type: FETCH_WEATHERS_SUCCESS,
-    weathers: weathers
+    times: times,
+    temps: temps,
+    pressures: pressures
   };
 };
 

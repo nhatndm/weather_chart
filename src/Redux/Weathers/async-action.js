@@ -18,10 +18,10 @@ export function asyncFetchWeathers(citiId) {
     dispatch(fetchWeathers());
 
     try {
-      const response = await CallApiWith(
-        HttpMethod.GET,
-        ApiFetchWeathers(citiId)
-      );
+      const response = await CallApiWith(HttpMethod.GET, ApiFetchWeathers, {
+        id: citiId,
+        appid: "0e65d269385c3e189ab0ef90c3ba6f47"
+      });
 
       const weathers = response.data;
 

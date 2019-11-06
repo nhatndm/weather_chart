@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from "react";
 import { HeaderContainer, FooterContainer } from "./Containers/Layout";
+import SelectCitiesContainer from "./Containers/Components/SelectCities";
 import "./index.scss";
 
 export default class App extends Component {
@@ -10,7 +11,7 @@ export default class App extends Component {
 
         <div className="app-content">
           <div className="container app-content-wrapper">
-            This is app content
+            <SelectCitiesContainer />
           </div>
         </div>
 

@@ -6,8 +6,8 @@ import { WeathersReducer } from "./Weathers";
 import { i18nState } from "redux-i18n";
 
 const rootReducer = combineReducers({
-  cities: CitiesReducer,
-  weathers: WeathersReducer,
+  city: CitiesReducer,
+  weather: WeathersReducer,
   i18nState
 });
 

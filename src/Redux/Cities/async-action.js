@@ -21,7 +21,14 @@ export function asyncFetchCities() {
 
       const cities = response.data;
 
-      dispatch(fetchCitiesSuccess(cities));
+      const reFormatCities = cities.map(v => {
+        return {
+          value: v.id,
+          label: v.name
+        };
+      });
+
+      dispatch(fetchCitiesSuccess(reFormatCities));
     } catch (error) {
       dispatch(fetchCitiesFailure(error.response.data));
     }

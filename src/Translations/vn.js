@@ -1,3 +1,4 @@
 export default {
-  Weather: "Thời tiết"
+  Weather: "Thời tiết",
+  select_language: "Ngôn Ngữ"
 };

@@ -1,3 +1,4 @@
 export default {
-  Weather: "Weather"
+  Weather: "Weather",
+  select_language: "Select Language"
 };

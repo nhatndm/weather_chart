@@ -1,3 +1,4 @@
 export default {
-  Weather: "Temps"
+  Weather: "Temps",
+  select_language: "Choisir la langue"
 };

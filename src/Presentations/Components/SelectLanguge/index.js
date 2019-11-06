@@ -4,7 +4,7 @@ import { ReactComponent as USIcon } from "../../../Assets/united-states-of-ameri
 import { ReactComponent as FRicon } from "../../../Assets/france.svg";
 import { ReactComponent as VnIcon } from "../../../Assets/vietnam.svg";
 import { ReactComponent as CloseIcon } from "../../../Assets/cross.svg";
-
+import PropTypes from "prop-types";
 import "./index.scss";
 
 const LanguageItem = ({ Icon, isActive, title, onClick }) => (
@@ -45,6 +45,10 @@ export default class SelectLanguage extends Component {
     };
   }
 
+  static contextTypes = {
+    t: PropTypes.func
+  };
+
   toogleModalSelectLanguage = status => e => {
     this.setState({ modalStatus: status });
   };
@@ -81,7 +85,9 @@ export default class SelectLanguage extends Component {
             onClick={this.toogleModalSelectLanguage("open-modal")}
           >
             <SelectLanguageIcon className="icon-20" />
-            <p className="select-language-title">Select Language</p>
+            <p className="select-language-title">
+              {this.context.t("select_language")}
+            </p>
           </div>
         </div>
         <div className={`select-language-modal ${modalStatus}`}>

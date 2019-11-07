@@ -1,5 +1,7 @@
 export default {
   Weather: "Weather",
-  select_language: "Select Language",
-  select_city: "Select City"
+  select_language: "Language",
+  select_city: "City",
+  weather_chart: "Weather Chart",
+  select_datetime: "Date"
 };

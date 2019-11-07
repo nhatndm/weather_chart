@@ -23,12 +23,11 @@ export default class SelectCitiesPresentation extends Component {
       <div className="select-city">
         <p className="select-city-title">{this.context.t("select_city")}</p>
         <div className="row">
-          <div className="col-12 col-md-4">
+          <div className="col-12 col-md-8">
             {cities.length !== 0 ? (
               <Select
                 options={cities}
                 isSearchable
-                isClearable
                 defaultValue={cities[0]}
                 onChange={this.handleSelect}
               />

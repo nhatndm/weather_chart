@@ -3,9 +3,10 @@ import {
   FETCH_WEATHERS_SUCCESS,
   FETCH_WEATHERS_FAILURE,
   SELECTED_DATE,
-  SAVE_TEMPS_PRESSURES,
   SAVE_DATA_FOR_CHARTS
 } from "./type";
+import moment from "moment";
+import { filter, map } from "lodash";
 
 export const fetchWeathers = () => ({ type: FETCH_WEATHERS });
 
@@ -17,18 +18,20 @@ export const fetchWeathersSuccess = (times, data) => {
   };
 };
 
-export const saveTempsPressures = (temps, pressures) => {
-  return {
-    type: SAVE_TEMPS_PRESSURES,
-    temps: temps,
-    pressures: pressures
-  };
-};
+export const saveDataForChart = (originalData, selectedDate) => {
+  const data = filter(originalData, v =>
+    moment(v.dt_txt).isSame(selectedDate, "days")
+  );
 
-export const saveDataForChart = data => {
+  const timesChart = map(data, v => moment(v.dt_txt).format("HH:mm"));
+  const temps = map(data, v => v.main.temp);
+  const pressures = map(data, v => v.main.pressure);
+
   return {
     type: SAVE_DATA_FOR_CHARTS,
-    data: data
+    timesChart: timesChart,
+    temps: temps,
+    pressures: pressures
   };
 };
 

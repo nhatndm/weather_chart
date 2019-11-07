@@ -15,7 +15,8 @@ class SelectCitiesContainer extends Component {
   }
 
   handleSelect(item) {
-    this.props.asyncFetchWeathers(item.value);
+    const { selectedDate, asyncFetchWeathers } = this.props;
+    asyncFetchWeathers(item.value, selectedDate);
   }
 
   render() {
@@ -31,14 +32,16 @@ class SelectCitiesContainer extends Component {
 
 const mapStateToProps = state => {
   return {
-    cities: state.city.cities
+    cities: state.city.cities,
+    selectedDate: state.weather.selectedDate
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     fetchCities: () => dispatch(asyncFetchCities()),
-    asyncFetchWeathers: cityId => dispatch(asyncFetchWeathers(cityId))
+    asyncFetchWeathers: (cityId, selectedDate) =>
+      dispatch(asyncFetchWeathers(cityId, selectedDate))
   };
 };
 

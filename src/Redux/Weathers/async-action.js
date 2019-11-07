@@ -2,7 +2,8 @@ import { ApiFetchWeathers } from "./api";
 import {
   fetchWeathers,
   fetchWeathersSuccess,
-  fetchWeathersFailure
+  fetchWeathersFailure,
+  saveDataForChart
 } from "./action-creator";
 import { CallApiWith } from "../../Helpers";
 import { HttpMethod } from "../../Constant";
@@ -14,7 +15,7 @@ import { map } from "lodash";
  * @return function - call API with these informations, then dispatch scuccessful action or failed action
  */
 
-export function asyncFetchWeathers(citiId) {
+export function asyncFetchWeathers(citiId, selectedDate) {
   return async function(dispatch) {
     dispatch(fetchWeathers());
 
@@ -29,6 +30,7 @@ export function asyncFetchWeathers(citiId) {
       const times = map(weathers, v => v.dt_txt);
 
       dispatch(fetchWeathersSuccess(times, weathers));
+      dispatch(saveDataForChart(weathers, selectedDate));
     } catch (error) {
       dispatch(fetchWeathersFailure(error.response.data));
     }

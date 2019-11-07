@@ -3,19 +3,19 @@ import {
   FETCH_WEATHERS_SUCCESS,
   FETCH_WEATHERS_FAILURE,
   SELECTED_DATE,
-  SAVE_DATA_FOR_CHARTS,
-  SAVE_TEMPS_PRESSURES
+  SAVE_DATA_FOR_CHARTS
 } from "./type";
+import moment from "moment";
 
 const initState = {
   times: [],
   temps: [],
   pressures: [],
   originalData: [],
-  data: [],
+  timesChart: [],
   error: "",
   loading: false,
-  selectedDate: null
+  selectedDate: moment()
 };
 
 export default (state = initState, action) => {
@@ -34,9 +34,12 @@ export default (state = initState, action) => {
     case SELECTED_DATE:
       return { ...state, selectedDate: action.selectedDate };
     case SAVE_DATA_FOR_CHARTS:
-      return { ...state, data: action.data };
-    case SAVE_TEMPS_PRESSURES:
-      return { ...state, temps: action.temps, pressures: action.pressures };
+      return {
+        ...state,
+        temps: action.temps,
+        pressures: action.pressures,
+        timesChart: action.timesChart
+      };
     default:
       return state;
   }

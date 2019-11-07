@@ -26,6 +26,7 @@ export default class SelectDateTimePresentation extends Component {
 
   onDateChange(date) {
     this.setState({ date });
+    this.props.onDateChange(date);
   }
 
   outSideRange(date) {

@@ -57,6 +57,7 @@ export default class SelectDateTimePresentation extends Component {
               isOutsideRange={this.outSideRange}
               showDefaultInputIcon
               disabled={times.length === 0}
+              small
             />
           </div>
         </div>

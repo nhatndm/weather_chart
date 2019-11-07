@@ -27,7 +27,8 @@ export default (state = initState, action) => {
         ...state,
         loading: false,
         times: action.times,
-        originalData: action.originalData
+        originalData: action.originalData,
+        error: ""
       };
     case FETCH_WEATHERS_FAILURE:
       return { ...state, loading: false, error: action.error };

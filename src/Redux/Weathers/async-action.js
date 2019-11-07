@@ -32,7 +32,15 @@ export function asyncFetchWeathers(citiId, selectedDate) {
       dispatch(fetchWeathersSuccess(times, weathers));
       dispatch(saveDataForChart(weathers, selectedDate));
     } catch (error) {
-      dispatch(fetchWeathersFailure(error.response.data));
+      if (Object.keys(error.response).length > 0) {
+        return dispatch(fetchWeathersFailure(error.response.data.message));
+      }
+
+      return dispatch(
+        fetchWeathersFailure(
+          "Have wrong something, Please contact admin for support!!!"
+        )
+      );
     }
   };
 }

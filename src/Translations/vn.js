@@ -3,5 +3,7 @@ export default {
   select_language: "Ngôn Ngữ",
   select_city: "Thành Phố",
   weather_chart: "Biểu đồ thời tiết",
-  select_datetime: "Ngày"
+  select_datetime: "Ngày",
+  temps: "Nhiệt độ",
+  pressure: "Áp suất"
 };

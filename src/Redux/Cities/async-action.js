@@ -6,6 +6,8 @@ import {
 } from "./action-creator";
 import { CallApiWith } from "../../Helpers";
 import { HttpMethod } from "../../Constant";
+import { asyncFetchWeathers } from "../Weathers";
+import moment from "moment";
 
 /**
  * @desc Call api to fetch citis
@@ -28,6 +30,7 @@ export function asyncFetchCities() {
         };
       });
 
+      dispatch(asyncFetchWeathers(cities[0].id, moment()));
       dispatch(fetchCitiesSuccess(reFormatCities));
     } catch (error) {
       dispatch(fetchCitiesFailure(error.response.data));

@@ -46,7 +46,7 @@ export default class SelectDateTimePresentation extends Component {
       <div className="select-city">
         <p className="select-city-title">{this.context.t("select_datetime")}</p>
         <div className="row">
-          <div className="col-12 col-md-4">
+          <div className="col-12 col-md-8">
             <SingleDatePicker
               numberOfMonths={1}
               onDateChange={this.onDateChange}

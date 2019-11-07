@@ -4,14 +4,22 @@ import { connect } from "react-redux";
 
 class WeathersContainer extends Component {
   render() {
-    const { data } = this.props;
-    return <WeathersPresentation data={data} />;
+    const { timesChart, temps, pressures } = this.props;
+    return (
+      <WeathersPresentation
+        timesChart={timesChart}
+        temps={temps}
+        pressures={pressures}
+      />
+    );
   }
 }
 
 const mapStateToProps = state => {
   return {
-    data: state.weather.data
+    timesChart: state.weather.timesChart,
+    temps: state.weather.temps,
+    pressures: state.weather.pressures
   };
 };
 

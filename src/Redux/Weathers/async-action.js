@@ -28,11 +28,7 @@ export function asyncFetchWeathers(citiId) {
 
       const times = map(weathers, v => v.dt_txt);
 
-      const temps = map(weathers, v => v.main.temp);
-
-      const pressures = map(weathers, v => v.main.pressure);
-
-      dispatch(fetchWeathersSuccess(times, temps, pressures));
+      dispatch(fetchWeathersSuccess(times, weathers));
     } catch (error) {
       dispatch(fetchWeathersFailure(error.response.data));
     }
